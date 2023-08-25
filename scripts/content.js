@@ -9,8 +9,6 @@ const getPrices = async (currencies) => {
   return response.data;
 };
 
-let gettingPrices = false;
-
 let checkElementInterval = setInterval(async () => {
   const overallContainer = document.getElementsByClassName("balance-1-1-1");
 
@@ -24,12 +22,11 @@ let checkElementInterval = setInterval(async () => {
     console.log("BNZBankBuddy: No overall found");
     return;
   }
+  clearInterval(checkElementInterval);
 
   const tooltip = overallContainer[0].querySelector(".help-1-1-3");
 
   // Getting prices
-  if (gettingPrices) return;
-  gettingPrices = true;
   const accountBalances = document.getElementsByClassName(`account-balance`);
   let currencies = [];
   for (let i = 0; i < accountBalances.length; i++) {
@@ -97,5 +94,4 @@ let checkElementInterval = setInterval(async () => {
 
   // Update overall
   overall.textContent = newTotal.toLocaleString("en-US");
-  clearInterval(checkElementInterval);
 }, 1000);
