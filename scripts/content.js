@@ -5,6 +5,7 @@ const INTERVAL = 1000; // 1 second
 
 // Gets prices for a given array of currencies
 const getPrices = async (currencies) => {
+  if (currencies.length === 0) return {};
   const cur = currencies.join(",");
   const url = `${URL}?apikey=${API_KEY}&currencies=${cur}&base_currency=NZD`;
   const request = await fetch(url);
