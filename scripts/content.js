@@ -91,5 +91,7 @@ let checkElementInterval = setInterval(async () => {
   }
 
   // Update overall
+
+  newTotal = Math.round(newTotal * 100) / 100;
   overall.textContent = newTotal.toLocaleString("en-US");
 }, 1000);
