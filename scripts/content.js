@@ -1,5 +1,3 @@
-const FIXER_API_KEY = "b667423fdaded850df7b1efd1f1c022b";
-
 const getPrices = async (currencies) => {
   const url = `https://api.freecurrencyapi.com/v1/latest?apikey=fca_live_T0mPlEkWPwoUnPAT6R6fC4V18UibBnTEeVvfcqzK&currencies=${currencies.join(
     ","
